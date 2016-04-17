@@ -1,0 +1,2 @@
+module BloopsHelper
+end
