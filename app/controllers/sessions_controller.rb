@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  class SessionsController < ApplicationController
   skip_before_action :authenticate_user
 
 
@@ -27,5 +26,4 @@ class SessionsController < ApplicationController
 
   def sign_out
   end
-end
 end

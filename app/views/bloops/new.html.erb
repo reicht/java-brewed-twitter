@@ -1,2 +1,16 @@
-<h1>Bloops#new</h1>
-<p>Find me in app/views/bloops/new.html.erb</p>
+<h1>Poop a new Bloop</h1>
+<hr />
+<div class='col-md-offset-2 col-md-6'>
+  <%= form_for(@bloop, class: 'form') do |f| %>
+
+    <div class='row'>
+      <div class='col-md-12'>
+        <%= f.label :message %>
+        <%= f.text_field :message, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='row'>
+      <%= f.submit class: "btn btn-primary", id: 'bloop_submit' %>
+    </div>
+  <% end %>
+</div>

@@ -5,18 +5,17 @@ class BloopsController < ApplicationController
 
   def show
     @bloop = get_bloop
+    @user = @bloop.user
   end
 
   def new
     @bloop = Bloop.new
-    @user = User.find(params.fetch(:user_id))
   end
 
   def create
-    @bloop = Bloop.new(bloop_params)
-    @user = User.find(params.fetch(:user_id))
+    @bloop = current_user.bloops.build(bloop_params)
 
-    if @student.save
+    if @bloop.save
       redirect_to bloop_path(@bloop)
     else
       render :new
@@ -24,11 +23,11 @@ class BloopsController < ApplicationController
   end
 
   def destroy
-    @bloop = get_boop
+    @bloop = get_bloop
     user = @bloop.user
 
     if @bloop.destroy
-      redirect_to user_path(user)
+      redirect_to root_path
     else
       redirect_to :back
     end
@@ -40,6 +39,6 @@ class BloopsController < ApplicationController
   end
 
   def bloop_params
-    params.require(:bloop).permit(:message, :user_id)
+    params.require(:bloop).permit(:message)
   end
 end

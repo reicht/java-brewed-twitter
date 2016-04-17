@@ -1,2 +1,10 @@
-<h1>Bloops#index</h1>
-<p>Find me in app/views/bloops/index.html.erb</p>
+<h1>List of Bloops</h1>
+<% if signed_in? %>
+  <%= link_to "Create a Bloop", new_bloop_url, class: 'btn btn-default btn-compliment' %>
+<% end %>
+<hr>
+<% @bloops.each do |bloop| %>
+  <div class='col-md-offset-2 col-md-6 target'>
+    <%= link_to bloop.message, bloop, class: 'btn btn-default btn-main' %>
+  </div>
+<% end %>

@@ -1,2 +1,8 @@
-<h1>Bloops#show</h1>
-<p>Find me in app/views/bloops/show.html.erb</p>
+<h1>Viewing Singular Bloop</h1>
+<h2> <%=@user.username%></h2>
+<p> <%=@bloop.message%> </p>
+<hr>
+<% if current_user == @bloop.user %>
+  <%= link_to "Poop This Bloop", bloop_path(@bloop), method: :DELETE, data: { confirm: "Confirm Bloop Poop?" }, class: 'btn btn-danger' %>
+<% end %>
+<hr>
