@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-rand(15..19).times do
+rand(12..19).times do
   user = User.create(username: Faker::Internet.user_name, password: "password")
-  rand(15..175).times do
-    Bloop.create(message: Faker::Hipster.sentence(rand(5..125)), user_id: user.id)
+  rand(15..30).times do
+    Bloop.create(message: Faker::Hipster.sentence(rand(3..15)), user_id: user.id)
   end
 end
