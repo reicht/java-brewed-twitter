@@ -13,7 +13,7 @@ class BloopsController < ApplicationController
   end
 
   def create
-    @bloop = current_user.bloops.build(bloop_params)
+    @bloop = current_user.bloops.build(message: params[:bloop_message])
 
     if @bloop.save
       redirect_to bloop_path(@bloop)
@@ -24,7 +24,6 @@ class BloopsController < ApplicationController
 
   def destroy
     @bloop = get_bloop
-    user = @bloop.user
 
     if @bloop.destroy
       redirect_to root_path

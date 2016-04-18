@@ -21,6 +21,10 @@ var ready = function () {
             $("#bloop_submit").prop("disabled", true);
          }
     });
+
+    $("#new-bloop[data-remote]").on("ajax:success", function (e, data, status, xhr){
+        $("#bloop_message").val("");
+    });
 };
 
 $(document).ready(ready);
